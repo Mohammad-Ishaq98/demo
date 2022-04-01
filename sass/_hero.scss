@@ -1,0 +1,57 @@
+@use 'var_styles' as v;
+.hero{
+  .one{
+    border-top: 100px solid  v.$themeMainColor;
+    border-right: 100px solid transparent;
+    position: relative;
+  }
+  .tow{
+    border-top: 50px solid  v.$themeMainColor;
+    border-right: 50px solid transparent;
+    position: relative;
+  }
+  .three{
+    border-top: 20px solid  v.$themeMainColor;
+    border-right: 20px solid transparent;
+    position: relative;
+  }
+  // .one.two,.three{
+  //   position: absolute;
+  //   left: -20%;
+  //   top: 0;
+  //   content: '';
+  // }
+  background: url('../img/hero.jpg'), center/cover;
+  background-repeat: no-repeat;
+  padding: 180px 0;
+  & .slider_section{
+    span{
+      color: v.$temMainTextColor;
+    }
+    h1{
+      color: v.$temMainTextColor;
+      padding-right: 53%;
+    }
+  }
+  .hero_btn{
+    margin-top: 20px;
+    .service_btn,.started_btn{
+      &:hover{
+        background: rgb(10, 100, 37);
+      }
+      @include v.temBtn;
+      background: #fff;
+      color: #000;
+      &::before{
+        background: #ED4B1E;
+      }
+    }
+    .started_btn{
+      color: #fff;
+      background: #000;
+      &:hover{
+        background: rgb(10, 117, 160);
+      }
+    }
+  }
+}

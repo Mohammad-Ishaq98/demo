@@ -1,0 +1,92 @@
+@use 'var_styles' as v;
+.header{
+  position: relative;
+  border-bottom: 1px solid blue;
+  &::before{
+    position: absolute;
+    left: -90%;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-top: 91px solid #ED4B1E;
+    border-right: 107px solid transparent;
+  }
+  & .tem_logo{
+      color: v.$themeMainColor;
+      font-size: 25px;
+      font-weight: 800;
+  }
+  & .header_nav{
+    & nav {
+      & ul {
+        & li{
+          position: relative;
+          display: inline-block;
+          &:not(:last-child){
+            margin-right: 10px;
+          }
+          //arrow icon
+          &.has_drop{      
+              position: relative;
+              &::before{
+                position: absolute;
+                content: "\f107";
+                font: normal normal normal 14px/1 FontAwesome;
+                right: -8px;
+                bottom: 17px;
+                font-size: 20px;
+              }
+          }
+          //li hover shows submenu
+          &:hover{
+            & >.submenu{
+              top: 100%;
+              visibility: visible;
+              opacity: 10;
+            }
+          }
+          & a{
+            display: inline-block;
+            padding: 15px 10px;
+            font-size: 18px;
+            margin-top: 18px;
+            color: v.$themeSecenderyColor;
+            &:hover{
+              color: v.$themeMainColor;
+              @include v.transition;
+            }
+          }
+          & .submenu{
+            position: absolute;
+            top: 70%;
+            left: 0;
+            width: 200px;
+            padding: 17px 10px;
+            padding-bottom: 25px;
+            background: #f3f3f3;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+            li{
+              display:block;
+              a{color: #e68686; display: inline-block;}
+            }
+          }
+        }
+      }
+    }
+  }
+  & .header_btn{
+    & button{
+      @include v.temBtn;
+      &:hover{
+        background: purple;
+        cursor: pointer;
+      }
+      span{
+        z-index: 6;
+      }
+    }
+  }
+}
